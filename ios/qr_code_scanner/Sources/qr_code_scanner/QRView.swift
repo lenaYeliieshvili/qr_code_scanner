@@ -5,8 +5,14 @@
 //  Created by Julius Canute on 21/12/18.
 //
 
+import Flutter
 import Foundation
+import UIKit
+#if canImport(MTBBarcodeScanner)
+// Separate module under Swift Package Manager; under CocoaPods the vendored
+// sources are compiled into this module and need no import.
 import MTBBarcodeScanner
+#endif
 
 public class QRView:NSObject,FlutterPlatformView {
     @IBOutlet var previewView: UIView!

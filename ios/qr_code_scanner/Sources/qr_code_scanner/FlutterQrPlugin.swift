@@ -1,7 +1,8 @@
 import Flutter
 import UIKit
 
-public class SwiftFlutterQrPlugin: NSObject, FlutterPlugin {
+@objc(FlutterQrPlugin)
+public class FlutterQrPlugin: NSObject, FlutterPlugin {
 
   var factory: QRViewFactory
   public init(with registrar: FlutterPluginRegistrar) {
@@ -10,13 +11,10 @@ public class SwiftFlutterQrPlugin: NSObject, FlutterPlugin {
   }
     
   public static func register(with registrar: FlutterPluginRegistrar) {
-    registrar.addApplicationDelegate(SwiftFlutterQrPlugin(with: registrar))
-  }
-  
-  public func applicationDidEnterBackground(_ application: UIApplication) {
-  }
-
-  public func applicationWillTerminate(_ application: UIApplication) {
+    let instance = FlutterQrPlugin(with: registrar)
+    // Keep the plugin instance alive for the engine's lifetime without
+    // subscribing to (deprecated) UIApplicationDelegate lifecycle events.
+    registrar.publish(instance)
   }
 
 }

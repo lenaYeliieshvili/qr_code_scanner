@@ -5,6 +5,7 @@
 //  Created by Julius Canute on 21/12/18.
 //
 
+import Flutter
 import Foundation
 
 public class QRViewFactory: NSObject, FlutterPlatformViewFactory {
